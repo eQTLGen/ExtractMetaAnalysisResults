@@ -110,19 +110,19 @@ gzip ${output_file}
 
 You can save the modified script version with different name, e.g. `submit_ExtractMetaAnalysisResults_p5e-8.sh`.
 
-Then submit the job `sbatch submit_ExtractMetaAnalysisResults_p5e-8.sh`. This initiates pipeline, makes analysis environment (using singularity or conda) and automatically submits the steps in correct order and parallel way. Separate work directory is made to the folder and contains all interim files.
+Then submit the job `sbatch submit_ExtractMetaAnalysisResults_p5e-8.sh`. This initiates pipeline, makes analysis environment (using singularity) and automatically submits the steps in correct order and parallel way. Separate work directory is made to the folder and contains all interim files.
 
 ##### Monitoring and debugging
 
 - Monitoring:
-  - Monitor the slurm-***.out log file and check if all the steps finish without error. Trick: command watch tail -n 20 slurm-***.out helps you to interactively monitor the status of the jobs.
-  - Use squeue -u [YourUserName] to see if individual tasks are in the queue.
+  - Monitor the `slurm-***.out` log file and check if all the steps finish without error. Trick: command `watch tail -n 20 slurm-***.out` helps you to interactively monitor the status of the jobs.
+  - Use `squeue -u [YourUserName]` to see if individual tasks are in the queue.
 - If the pipeline crashes (e.g. due to walltime), you can just resubmit the same script after the fixes. Nextflow does not rerun completed steps and continues only from the steps which had not completed.
-- When the work has finished, download and check the job report. This file is automatically written to your output folder pipeline_info subfolder, for potential errors or warnings. E.g. output/pipeline_info/MetaAnalysis_report.html.
+- When the work has finished, download and check the job report. This file is automatically written to your output folder pipeline_info subfolder, for potential errors or warnings. E.g. `output/pipeline_info/MetaAnalysis_report.html.`
 - When you need to do some debugging, then you can use the last section of aforementioned report to figure out in which subfolder from work folder the actual step was run. You can then navigate to this folder and investigate the following hidden files:
-  - .command.sh: script which was submitted
-  - .command.log: log file for seeing the analysis outputs/errors.
-  - .command.err: file which lists the errors, if any.
+  - `.command.sh`: script which was submitted
+  - `.command.log`: log file for seeing the analysis outputs/errors.
+  - `.command.err`: file which lists the errors, if any.
 
 **NB!** Pipeline does not overwrite the files in the output folder. Therefore, **before re-running the pipeline, delete the output files in the output folder!**
 

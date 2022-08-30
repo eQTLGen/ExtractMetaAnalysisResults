@@ -33,7 +33,6 @@ NXF_VER=20.10.0 ${nextflow_path}/nextflow run ExtractHaseResults.nf \
 --outputfile ${output_file} \
 --NumberOfCovariates ${nr_covariates} \
 --SnpRef ${snp_ref} \
---PThresh 5e-8 \
 -resume \
 -profile slurm,singularity
 
