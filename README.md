@@ -139,7 +139,7 @@ Tab-delimited `.txt` file with the following information:
 - beta: beta, corresponding to alt_all
 - se: standard error of the beta
 - P: P-value, calculated by the pipeline
-- i_squared: heterogeneity I^2^ for given effect, useful for QC.
+- i_squared: heterogeneity I<sup>2</sup> for given effect, useful for QC.
 - N: sample size, in how many samples this effect was tested, useful for QC.
 
 ### TODO
