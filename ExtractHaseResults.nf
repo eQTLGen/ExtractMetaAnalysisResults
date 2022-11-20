@@ -51,8 +51,8 @@ params.PThresh = 1
 InpFile = Channel.fromPath(params.inputfolder)
 OutpFile = Channel.fromPath(params.outputfile)
 NumberOfCovariates = Channel.value(params.NumberOfCovariates)
-PhenFilter = Channel.value(params.PhenFilter)
-SnpFilter = Channel.value(params.SnpFilter)
+PhenFilter = Channel.fromPath(params.PhenFilter)
+SnpFilter = Channel.fromPath(params.SnpFilter)
 SnpRef = Channel.fromPath(params.SnpRef)
 
 
@@ -88,8 +88,8 @@ process ExtractResults {
     input:
         file InpFile from InpFile
         val NumberOfCovariates from NumberOfCovariates
-        val PhenFilter from PhenFilter
-        val SnpFilter from SnpFilter
+        file PhenFilter from PhenFilter
+        file SnpFilter from SnpFilter
         file SnpRef from SnpRef
         each Chunk from 1..params.Chunks
         val PThresh from params.PThresh
